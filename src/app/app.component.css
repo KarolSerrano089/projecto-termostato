@@ -1,0 +1,15 @@
+:host{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.temperatura{
+  flex: 0 0 50%;
+  background-color: rgb(105, 188, 255);
+}
+
+.termostato{
+  flex: 1;
+  background-color: rgb(255, 215, 139);
+}
