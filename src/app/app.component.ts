@@ -13,9 +13,13 @@ export class AppComponent {
   title = 'projecto-termostato';
 
   temperatura = 20;
+  umbral = 25;
 
   //eventos/listeners
   onCambioTemperaturaOutput(tempUpdate: number){
     this.temperatura = tempUpdate;
+  }
+  onUmbralChange(nuevoUmbral: number) {
+    this.umbral = nuevoUmbral;
   }
 }

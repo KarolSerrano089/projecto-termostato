@@ -7,11 +7,10 @@
   <button (click)="onClickIncTemp()">➕</button>
 </div>
 <div>
-  <span>
-    Umbral alerta:
-  </span>
+  <span> Umbral alerta: </span>
+
 </div>
 <div>
   <!-- $even envia el elvento del DOM al navegador asociado a -->
-  <input (input)="onInput($event)"/>
+  <input type="text" [value]="umbral()" (input)="onInput($event)">
 </div>

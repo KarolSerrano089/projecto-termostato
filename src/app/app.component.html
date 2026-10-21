@@ -1,11 +1,14 @@
 Control padre temperatura: {{ this.temperatura }}
 <app-contol-temperatura
-[temperature]="this.temperatura"
-class="temperatura"
-(temperatureOutput)="onCambioTemperaturaOutput($event)"
+  [temperature]="temperatura"
+  [umbral]="umbral"
+  class="temperatura"
+  (temperatureOutput)="onCambioTemperaturaOutput($event)"
+  (umbralOutput)="onUmbralChange($event)"
 ></app-contol-temperatura>
 
 <app-display-termostato
-[temperature]="this.temperatura"
+[temperature]="temperatura"
+[umbral]="umbral"
 class="termostato"
 ></app-display-termostato>

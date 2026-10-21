@@ -15,11 +15,11 @@ export class DisplayTermostatoComponent implements OnChanges{
   //Esto es para que salte lo de la alarma
   ngOnChanges(changes: SimpleChanges): void {
 
-    if(changes['temperature']){
+    if(changes['temperature'] || changes['umbral']){
 
       let temperatureImput = changes['temperature'].currentValue;
 
-      if(temperatureImput > this.umbral){
+      if(temperatureImput > this.umbral()){
         this.alarm = true;
       }else{
         this.alarm = false;
@@ -29,9 +29,9 @@ export class DisplayTermostatoComponent implements OnChanges{
 
   //inputs/output
   temperature = input.required<number>();
+  umbral = input.required<number>();
 
   //propiedades
-  umbral = 25;
   alarm = false;
 
 }

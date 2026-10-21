@@ -1,5 +1,4 @@
 import { Component, input, output } from '@angular/core';
-import { constants } from 'buffer';
 
 @Component({
   selector: 'app-contol-temperatura',
@@ -12,6 +11,7 @@ export class ContolTemperaturaComponent {
     temperature = input.required<number>();
     temperatureOutput = output<number>();
     umbralOutput = output<number>();
+    umbral = input.required<number>();
 
 
     //priopiedades
@@ -31,12 +31,12 @@ export class ContolTemperaturaComponent {
     onInput(event: Event){
       let inputElement = event.target as HTMLInputElement;
 
-      try{
-        let umbral = Number(inputElement.value);
-        console.log(`se establece le nuevo: ${umbral}`)
+      let umbral = Number(inputElement.value);
+      if(Number.isNaN(umbral)){
+        inputElement.value = this.umbral().toString();
+      }else{
+        console.log(`Se establece nuevo ${umbral}`);
         this.umbralOutput.emit(umbral);
-      }catch(error){
-        inputElement.value = this.temperature().toString();
       }
     }
 }
